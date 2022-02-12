@@ -28,6 +28,9 @@ df.to_clipboard()
 ### data explore
 
 ```
+import pandas_profiling
+train.profile_report()
+
 df = pd.read_csv('...')
 
 df.shape()
