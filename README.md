@@ -148,8 +148,36 @@ from sklearn.externals import joblib
 ```
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0) 
+```
+
+
+### KFold
+
+
 
 ```
+from sklearn.model_selection import KFold
+kf=KFold(n_splits=5,shuffle=True,randome_state=0)
+```
+
+使用例
+
+```
+scores=[]
+
+for train_id,test_id in kf.split(X):
+    x=X[train_id]
+    y=Y[train_id]
+    
+    clf=DecisionTreeClassifier(max_depth=3,random_state=42)
+    clf.fit(x,y)
+    pred_y=clf.predict(X[test_id])
+    score=accuracy_score(Y[test_id],pred_y)
+    scores.append(score)
+    
+scores=np.array(scores)
+```
+
 
 
 ## その他
