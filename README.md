@@ -153,6 +153,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 
 ### KFold
 
+CrossValidationには、学習用データセットを無駄にしないという利点がある。ホールドアウト検証では検証用データセットに該当する部分を学習に利用できないが，CrossValidationでは複数の分割を実施するので，全体としては与えられたデータセットを漏れなく学習に利用できる
 
 
 ```
